@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://www.ngy123.com/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南宫远的导航</title>
+    <link href="./南宫远的导航_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A90E2; /* 蓝色，用于页眉和按钮 */
+            --secondary-color: #6B7B8E; /* 深灰色，用于页脚 */
+            --background-light: #E3EDCD; /* 主背景色：护眼绿豆沙色 */
+            --background-medium: #D1E0B8; /* 绿豆沙的深一点的变体，用于侧边栏、搜索区域和卡片悬停 */
+            --text-dark: #343A40; /* 深文本 */
+            --text-light: #F8F9FA; /* 浅文本 */
+            --border-color: #B0C595; /* 边框色，与绿豆沙色系协调 */
+            --card-bg: var(--background-light); /* 卡片背景与主背景色相同，实现全覆盖 */
+            --shadow-light: rgba(0, 0, 0, 0.08); /* 浅阴影 */
+            --shadow-medium: rgba(0, 0, 0, 0.15); /* 中等阴影 */
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 25px;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            background-color: var(--background-light); /* 应用主护眼绿豆沙色 */
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background: var(--primary-color); /* 使用主题蓝色 */
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 10px var(--shadow-light);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 15px;
+            background-color: var(--background-medium); /* 搜索区域使用稍深的绿豆沙色 */
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #searchForm {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background-color: var(--background-light); /* 搜索框背景也为绿豆沙色 */
+            padding: 10px 20px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            width: 100%;
+            max-width: 700px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        #searchForm:focus-within {
+            box-shadow: 0 6px 16px var(--shadow-medium);
+        }
+
+        #searchEngine, #searchInput {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            font-size: 1em;
+            outline: none;
+            background-color: var(--background-light); /* 输入框和选择框背景 */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #searchEngine {
+            flex-shrink: 0;
+            min-width: 100px;
+            cursor: pointer;
+        }
+
+        #searchInput {
+            flex-grow: 1;
+        }
+
+        #searchInput:focus, #searchEngine:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Soft primary color glow */
+            background-color: var(--background-light); /* 聚焦时背景依然是绿豆沙 */
+        }
+
+        #searchForm button {
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            white-space: nowrap; /* Prevent button text from wrapping */
+        }
+
+        #searchForm button:hover {
+            background-color: #3A7BBF; /* Slightly darker primary */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px var(--shadow-medium);
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            max-width: 1300px;
+            margin: 30px auto;
+            /* 移除 background 属性，让其透明，显示 body 的背景 */
+            /* background: var(--card-bg); */ 
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 0 20px var(--shadow-light);
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 220px;
+            padding: 1.5rem;
+            background-color: var(--background-medium); /* 侧边栏使用稍深的绿豆沙色 */
+            border-right: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            align-self: flex-start;
+            height: fit-content;
+            max-height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+            border-top-left-radius: var(--border-radius-md);
+            border-bottom-left-radius: var(--border-radius-md);
+        }
+
+        .sidebar h2 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-top: 0;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: var(--border-radius-sm);
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            padding-bottom: 80px;
+        }
+
+        .category {
+            margin-bottom: 3.5rem;
+        }
+
+        .category h2 {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.8rem;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.8rem;
+            font-weight: 700;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 核心：强制一行4列 */
+            gap: 15px;
+        }
+
+        .category ul li {
+            background: var(--card-bg); /* 卡片背景现在与主背景色相同 */
+            padding: 1rem;
+            border-radius: var(--border-radius-md);
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px var(--shadow-light); /* 增加默认阴影，让卡片有浮动感 */
+            word-break: break-all;
+        }
+
+        .category ul li:hover {
+            background: var(--background-medium); /* 悬停时背景变稍深的绿豆沙色 */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            transition: color 0.2s ease;
+        }
+
+        .category ul li a:hover {
+            color: #3A7BBF;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            width: 100%;
+            margin-top: auto;
+            box-shadow: 0 -4px 10px var(--shadow-light);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .category ul {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                margin: 20px 15px;
+                box-shadow: none;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                position: relative;
+                top: auto;
+                max-height: none;
+                overflow-y: visible;
+                border-radius: var(--border-radius-md);
+                margin-bottom: 20px;
+            }
+            .sidebar ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .sidebar ul li {
+                margin-bottom: 0;
+                flex: 1 1 auto;
+                text-align: center;
+            }
+            .sidebar ul li a {
+                padding: 0.6rem 1rem;
+                white-space: nowrap;
+            }
+            .category ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            #searchForm {
+                flex-direction: column;
+                padding: 15px;
+                border-radius: var(--border-radius-md);
+                gap: 10px;
+            }
+            #searchEngine, #searchInput, #searchForm button {
+                width: 100%;
+                margin-bottom: 0;
+            }
+            .category ul {
+                grid-template-columns: 1fr;
+            }
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 南宫远的导航网站</h1>
+    </header>
+
+    <div class="search-container">
+        <form id="searchForm">
+            <select id="searchEngine">
+                <option value="baidu" selected="">百度</option>
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="输入搜索内容..." required="">
+            <button type="submit">搜 索</button>
+        </form>
+    </div>
+
+    <div class="content-wrapper">
+        <aside class="sidebar">
+            <h2>网站分类</h2>
+            <ul>
+                <li><a href="https://www.ngy123.com/#%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99">常用网站</a></li>
+                <li><a href="https://www.ngy123.com/#AI%E5%AF%BC%E8%88%AA">AI导航</a></li>
+                <li><a href="https://www.ngy123.com/#%E5%B7%A5%E5%85%B7">工具</a></li>
+            </ul>
+        </aside>
+        <main>
+            <section class="category" id="常用网站">
+                <h2>常用网站</h2>
+                <ul>
+                    <li><a href="https://x.com/nangongyuan/" target="_blank" title="南宫远的推特X">
+                        南宫远推特
+                    </a></li>
+                    <li><a href="https://weibo.com/7594643421" target="_blank" title="南宫远的微博。">
+                        南宫远微博
+                    </a></li>
+                    <li><a href="https://www.baidu.com/s?wd=%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E7%BE%8E%E5%85%83%E4%BB%B7%E6%A0%BC&amp;rsv_spt=1&amp;rsv_iqid=0xc3cd7ac90002853f&amp;issp=1&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_dl=tb&amp;oq=%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581%25E4%25BB%25B7%25E6%25A0%25BC&amp;rsv_btype=t&amp;inputT=1554&amp;rsv_t=c52dHmgnWyFxeFduSIiGJ4eIRJqB7rPiwYP9Yjv9ySSsuilDP0zaIVW67LD9hLhGBnuU&amp;rsv_pq=a25386bc00004ac7&amp;rsv_sug3=26&amp;rsv_sug1=19&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=5085" target="_blank" title="百度比特币实时价格">
+                        比特币实时价格
+                    </a></li>
+                    <li><a href="https://www.panewslab.com/zh" target="_blank" title="币圈新闻panews。">
+                        币圈新闻panews
+                    </a></li>
+                    <li><a href="https://www.coinglass.com/zh" target="_blank" title="行情与数据coinglass">
+                        行情与数据coinglass
+                    </a></li>
+                    <li><a href="https://fiatmarketcap.com/?continueFlag=744bde3f38e437801ad17fc359cf5dda" target="_blank" title="全球货币市值排行榜。">
+                        全球货币市值排行榜
+                    </a></li>
+                    <li><a href="https://mp.weixin.qq.com/cgi-bin/home?t=home/index&amp;token=922698699&amp;lang=zh_CN" target="_blank" title="微信公众号。">
+                        微信公众号
+                    </a></li>
+                    <li><a href="https://yaps.kaito.ai/" target="_blank" title="kol积分排行。">
+                        kaito
+                    </a></li>
+                    <li><a href="https://www.bilibili.com/" target="_blank" title="bilibili">
+                        哔哩哔哩
+                    </a></li>
+                    <li><a href="https://www.zhihu.com/" target="_blank" title="知乎">
+                        知乎
+                    </a></li>
+                    <li><a href="https://baijiahao.baidu.com/" target="_blank" title="百度百家号。">
+                        百家号
+                    </a></li>
+                    <li><a href="https://mp.toutiao.com/profile_v4/index" target="_blank" title="头条号。">
+                        头条号
+                    </a></li>
+                    <li><a href="https://creator.xiaohongshu.com/new/home" target="_blank" title="小红书">
+                        小红书
+                    </a></li>
+                    <li><a href="https://www.youtube.com/@%E5%8D%97%E5%AE%AB%E8%BF%9C%E7%9A%84%E9%A2%91%E9%81%93" target="_blank" title="全球最大的视频社区。">
+                        youtube视频
+                    </a></li>
+                    <li><a href="https://mp.sohu.com/mpfe/v4/contentManagement/first/page" target="_blank" title="搜狐。">
+                        搜狐号
+                    </a></li>
+                    <li><a href="https://www.bestvideow.com/" target="_blank" title="万能视频下载。">
+                        推特视频下载万能视频
+                    </a></li>
+                </ul>
+            </section>
+            <section class="category" id="AI导航">
+                <h2>AI导航</h2>
+                <ul>
+                    <li><a href="https://chatgpt.com/" target="_blank" title="最早最大的ai平台。">
+                        chatgpt
+                    </a></li>
+                    <li><a href="https://claude.ai/" target="_blank" title="chatgpt离职团队做的ai。">
+                        claude
+                    </a></li>
+                    <li><a href="https://gemini.google.com/app" target="_blank" title="谷歌旗下ai。">
+                        gemini
+                    </a></li>
+                    <li><a href="https://grok.com/" target="_blank" title="推特旗下ai。">
+                        推特grok
+                    </a></li>
+                    <li><a href="https://chat.baidu.com/search?isShowHello=1&amp;pd=csaitab&amp;setype=csaitab&amp;extParamsJson=%7B%22enter_type%22%3A%22home_tab%22%7D" target="_blank" title="百度旗下ai。">
+                        百度ai
+                    </a></li>
+                    <li><a href="https://raphael.app/zh" target="_blank" title="ai图片生成。">
+                        ai图片生成raphael
+                    </a></li>
+                    <li><a href="https://vdraw.ai/" target="_blank" title="ai图表生成。">
+                        ai图表生成vdraw
+                    </a></li>
+                    <li><a href="https://listenhub.ai/zh" target="_blank" title="真人播客">
+                        listen真人播客
+                    </a></li>
+                    <li><a href="https://www.vsoul.ai/desktop" target="_blank" title="灵魂ai。">
+                        vsoul灵魂ai
+                    </a></li>
+                    <li><a href="https://space.coze.cn/" target="_blank" title="ai平台。">
+                        扣子空间
+                    </a></li>
+                </ul>
+            </section>
+            <section class="category" id="工具">
+                <h2>工具</h2>
+                <ul>
+                    <li><a href="https://snapany.com/zh" target="_blank" title="万能视频下载。">
+                        万能视频下载
+                    </a></li>
+                    <li><a href="https://newsnow.busiyi.world/c/focus" target="_blank" title="新闻大全。">
+                        新闻大全
+                    </a></li>
+                    <li><a href="https://v2ex.com/" target="_blank" title="V2EX程序员社区。">
+                        V2EX程序员社区
+                    </a></li>
+                    <li><a href="https://www.yuque.com/u39594597/ffp1h4" target="_blank" title="语雀。">
+                        语雀撸毛合集
+                    </a></li>
+                    <li><a href="https://accounts.binance.com/zh-TW/register?ref=10022763" target="_blank" title="币安全球第一交易所。">
+                        币安交易所
+                    </a></li>
+                    <li><a href="https://www.okx.com/zh-hans/join/1847115" target="_blank" title="okx全球第二交易所。">
+                        OKX交易所
+                    </a></li>
+                    <li><a href="https://www.beeeye.xyz/zh-CN/referral/register?clacCode=MNZREPYS&amp;from=%2Fzh-CN%2Fevents%2Freferral-all-program&amp;source=events&amp;utmSource=PremierInviter" target="_blank" title="bitget交易所。">
+                        bitget交易所
+                    </a></li>
+                    <li><a href="https://www.gatewebsite.com/zh/signup?ref_type=102&amp;ref=UwdFUQ" target="_blank" title="大门交易所。">
+                        大门交易所gate
+                    </a></li>
+                    <li><a href="https://github.com/coin1234567/" target="_blank" title="全球最大程序员社区。">
+                        github
+                    </a></li>
+                    <li><a href="https://dash.cloudflare.com/c21953719bb3372ad1b858b766bb0bb3/home/domains/" target="_blank" title="cloudflare。">
+                        cloudflare
+                    </a></li>
+                    <li><a href="https://gw2.wishingstarmoye.com/" target="_blank" title="激战2数据库。">
+                    激战2数据库
+                </a></li>
+                <li><a href="https://tieba.baidu.com/f?kw=%BC%A4%D5%BD2&amp;fr=ala0&amp;tpl=5&amp;dyTabStr=MCw2LDMsMiwxLDQsNSw4LDcsOQ%3D%3D" target="_blank" title="激战2贴吧。">
+                    激战2贴吧
+                </a></li>
+                <li><a href="https://www.axutongxue.com/" target="_blank" title="阿虚同学的储物间。">
+                阿虚同学的储物间
+            </a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>© 2025 南宫远的导航站</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchForm = document.getElementById('searchForm');
+            const searchInput = document.getElementById('searchInput');
+            const searchEngineSelect = document.getElementById('searchEngine');
+
+            searchForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const query = searchInput.value.trim();
+                if (query === '') {
+                    searchInput.focus();
+                    return;
+                }
+
+                const selectedEngine = searchEngineSelect.value;
+                let searchUrl;
+
+                if (selectedEngine === 'baidu') {
+                    searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
+                } else if (selectedEngine === 'google') {
+                    searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                } else if (selectedEngine === 'bing') {
+                    searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+                }
+
+                if (searchUrl) {
+                    window.open(searchUrl, '_blank');
+                }
+            });
+
+            // Smooth scrolling for sidebar links
+            document.querySelectorAll('.sidebar a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+
+</body></html>
