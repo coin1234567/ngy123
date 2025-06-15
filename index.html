@@ -4,6 +4,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>南宫远的导航</title>
+    <!-- 备注: 如果 css2.css 文件为空或不存在，可以删除下面这行 -->
     <link href="css2.css" rel="stylesheet">
     <style>
         :root {
@@ -332,12 +333,12 @@
 
     <div class="search-container">
         <form id="searchForm">
-            <select id="searchEngine">
+            <select id="searchEngine" aria-label="选择搜索引擎">
                 <option value="baidu" selected="">百度</option>
                 <option value="google">Google</option>
                 <option value="bing">Bing</option>
             </select>
-            <input type="text" id="searchInput" placeholder="输入搜索内容..." required="">
+            <input type="text" id="searchInput" placeholder="输入搜索内容..." required="" aria-label="搜索输入框">
             <button type="submit">搜 索</button>
         </form>
     </div>
@@ -346,61 +347,61 @@
         <aside class="sidebar">
             <h2>网站分类</h2>
             <ul>
-                <li><a href="https://www.ngy123.com/#%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99">常用网站</a></li>
-                <li><a href="https://www.ngy123.com/#AI%E5%AF%BC%E8%88%AA">AI导航</a></li>
-                <li><a href="https://www.ngy123.com/#%E5%B7%A5%E5%85%B7">工具</a></li>
+                <li><a href="#常用网站">常用网站</a></li>
+                <li><a href="#AI导航">AI导航</a></li>
+                <li><a href="#工具">工具</a></li>
             </ul>
         </aside>
         <main>
             <section class="category" id="常用网站">
                 <h2>常用网站</h2>
                 <ul>
-                    <li><a href="https://x.com/nangongyuan/" target="_blank" title="南宫远的推特X">
+                    <li><a href="https://x.com/nangongyuan/" target="_blank" rel="noopener noreferrer" title="南宫远的推特X">
                         南宫远推特
                     </a></li>
-                    <li><a href="https://weibo.com/7594643421" target="_blank" title="南宫远的微博。">
+                    <li><a href="https://weibo.com/7594643421" target="_blank" rel="noopener noreferrer" title="南宫远的微博。">
                         南宫远微博
                     </a></li>
-                    <li><a href="https://www.baidu.com/s?wd=%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E7%BE%8E%E5%85%83%E4%BB%B7%E6%A0%BC&amp;rsv_spt=1&amp;rsv_iqid=0xc3cd7ac90002853f&amp;issp=1&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_dl=tb&amp;oq=%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581%25E4%25BB%25B7%25E6%25A0%25BC&amp;rsv_btype=t&amp;inputT=1554&amp;rsv_t=c52dHmgnWyFxeFduSIiGJ4eIRJqB7rPiwYP9Yjv9ySSsuilDP0zaIVW67LD9hLhGBnuU&amp;rsv_pq=a25386bc00004ac7&amp;rsv_sug3=26&amp;rsv_sug1=19&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=5085" target="_blank" title="百度比特币实时价格">
+                    <li><a href="https://www.baidu.com/s?wd=%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E7%BE%8E%E5%85%83%E4%BB%B7%E6%A0%BC&rsv_spt=1&rsv_iqid=0xc3cd7ac90002853f&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&oq=%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581%25E4%25BB%25B7%25E6%25A0%25BC&rsv_btype=t&inputT=1554&rsv_t=c52dHmgnWyFxeFduSIiGJ4eIRJqB7rPiwYP9Yjv9ySSsuilDP0zaIVW67LD9hLhGBnuU&rsv_pq=a25386bc00004ac7&rsv_sug3=26&rsv_sug1=19&rsv_sug7=100&rsv_sug2=0&rsv_sug4=5085" target="_blank" rel="noopener noreferrer" title="百度比特币实时价格">
                         比特币实时价格
                     </a></li>
-                    <li><a href="https://www.panewslab.com/zh" target="_blank" title="币圈新闻panews。">
+                    <li><a href="https://www.panewslab.com/zh" target="_blank" rel="noopener noreferrer" title="币圈新闻panews。">
                         币圈新闻panews
                     </a></li>
-                    <li><a href="https://www.coinglass.com/zh" target="_blank" title="行情与数据coinglass">
+                    <li><a href="https://www.coinglass.com/zh" target="_blank" rel="noopener noreferrer" title="行情与数据coinglass">
                         行情与数据coinglass
                     </a></li>
-                    <li><a href="https://fiatmarketcap.com/?continueFlag=744bde3f38e437801ad17fc359cf5dda" target="_blank" title="全球货币市值排行榜。">
+                    <li><a href="https://fiatmarketcap.com/?continueFlag=744bde3f38e437801ad17fc359cf5dda" target="_blank" rel="noopener noreferrer" title="全球货币市值排行榜。">
                         全球货币市值排行榜
                     </a></li>
-                    <li><a href="https://mp.weixin.qq.com/cgi-bin/home?t=home/index&amp;token=922698699&amp;lang=zh_CN" target="_blank" title="微信公众号。">
+                    <li><a href="https://mp.weixin.qq.com/cgi-bin/home?t=home/index&token=922698699&lang=zh_CN" target="_blank" rel="noopener noreferrer" title="微信公众号。">
                         微信公众号
                     </a></li>
-                    <li><a href="https://yaps.kaito.ai/" target="_blank" title="kol积分排行。">
+                    <li><a href="https://yaps.kaito.ai/" target="_blank" rel="noopener noreferrer" title="kol积分排行。">
                         kaito
                     </a></li>
-                    <li><a href="https://www.bilibili.com/" target="_blank" title="bilibili">
+                    <li><a href="https://www.bilibili.com/" target="_blank" rel="noopener noreferrer" title="bilibili">
                         哔哩哔哩
                     </a></li>
-                    <li><a href="https://www.zhihu.com/" target="_blank" title="知乎">
+                    <li><a href="https://www.zhihu.com/" target="_blank" rel="noopener noreferrer" title="知乎">
                         知乎
                     </a></li>
-                    <li><a href="https://baijiahao.baidu.com/" target="_blank" title="百度百家号。">
+                    <li><a href="https://baijiahao.baidu.com/" target="_blank" rel="noopener noreferrer" title="百度百家号。">
                         百家号
                     </a></li>
-                    <li><a href="https://mp.toutiao.com/profile_v4/index" target="_blank" title="头条号。">
+                    <li><a href="https://mp.toutiao.com/profile_v4/index" target="_blank" rel="noopener noreferrer" title="头条号。">
                         头条号
                     </a></li>
-                    <li><a href="https://creator.xiaohongshu.com/new/home" target="_blank" title="小红书">
+                    <li><a href="https://creator.xiaohongshu.com/new/home" target="_blank" rel="noopener noreferrer" title="小红书">
                         小红书
                     </a></li>
-                    <li><a href="https://www.youtube.com/@%E5%8D%97%E5%AE%AB%E8%BF%9C%E7%9A%84%E9%A2%91%E9%81%93" target="_blank" title="全球最大的视频社区。">
+                    <li><a href="https://www.youtube.com/@%E5%8D%97%E5%AE%AB%E8%BF%9C%E7%9A%84%E9%A2%91%E9%81%93" target="_blank" rel="noopener noreferrer" title="全球最大的视频社区。">
                         youtube视频
                     </a></li>
-                    <li><a href="https://mp.sohu.com/mpfe/v4/contentManagement/first/page" target="_blank" title="搜狐。">
+                    <li><a href="https://mp.sohu.com/mpfe/v4/contentManagement/first/page" target="_blank" rel="noopener noreferrer" title="搜狐。">
                         搜狐号
                     </a></li>
-                    <li><a href="https://www.bestvideow.com/" target="_blank" title="万能视频下载。">
+                    <li><a href="https://www.bestvideow.com/" target="_blank" rel="noopener noreferrer" title="万能视频下载。">
                         推特视频下载万能视频
                     </a></li>
                 </ul>
@@ -408,49 +409,49 @@
             <section class="category" id="AI导航">
                 <h2>AI导航</h2>
                 <ul>
-                    <li><a href="https://chatgpt.com/" target="_blank" title="最早最大的ai平台。">
+                    <li><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" title="最早最大的ai平台。">
                         chatgpt
                     </a></li>
-                    <li><a href="https://aistudio.google.com/prompts/new_chat" target="_blank" title="谷歌旗下ai。">
+                    <li><a href="https://aistudio.google.com/prompts/new_chat" target="_blank" rel="noopener noreferrer" title="谷歌旗下ai。">
                         Google AI Studio
                     </a></li>
-                    <li><a href="https://claude.ai/" target="_blank" title="chatgpt离职团队做的ai。">
+                    <li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" title="chatgpt离职团队做的ai。">
                         claude
                     </a></li>
-                    <li><a href="https://gemini.google.com/app" target="_blank" title="谷歌旗下ai。">
+                    <li><a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" title="谷歌旗下ai。">
                         gemini
                     </a></li>
-                    <li><a href="https://grok.com/" target="_blank" title="推特旗下ai。">
+                    <li><a href="https://grok.com/" target="_blank" rel="noopener noreferrer" title="推特旗下ai。">
                         推特grok
                     </a></li>
-                    <li><a href="https://copilot.microsoft.com/chats/WkCZYtNtZsvqffr2qCRUp" target="_blank" title="微软旗下ai。">
+                    <li><a href="https://copilot.microsoft.com/chats/WkCZYtNtZsvqffr2qCRUp" target="_blank" rel="noopener noreferrer" title="微软旗下ai。">
                         微软AI bing
                     </a></li>
-                    <li><a href="https://chat.baidu.com/search?isShowHello=1&amp;pd=csaitab&amp;setype=csaitab&amp;extParamsJson=%7B%22enter_type%22%3A%22home_tab%22%7D" target="_blank" title="百度旗下ai。">
+                    <li><a href="https://chat.baidu.com/search?isShowHello=1&pd=csaitab&setype=csaitab&extParamsJson=%7B%22enter_type%22%3A%22home_tab%22%7D" target="_blank" rel="noopener noreferrer" title="百度旗下ai。">
                         百度ai
                     </a></li>
-                    <li><a href="https://raphael.app/zh" target="_blank" title="ai图片生成。">
+                    <li><a href="https://raphael.app/zh" target="_blank" rel="noopener noreferrer" title="ai图片生成。">
                         ai图片生成raphael
                     </a></li>
-                    <li><a href="https://vdraw.ai/" target="_blank" title="ai图表生成。">
+                    <li><a href="https://vdraw.ai/" target="_blank" rel="noopener noreferrer" title="ai图表生成。">
                         ai图表生成vdraw
                     </a></li>
-                    <li><a href="https://listenhub.ai/zh" target="_blank" title="真人播客">
+                    <li><a href="https://listenhub.ai/zh" target="_blank" rel="noopener noreferrer" title="真人播客">
                         listen真人播客
                     </a></li>
-                    <li><a href="https://www.vsoul.ai/desktop" target="_blank" title="灵魂ai。">
+                    <li><a href="https://www.vsoul.ai/desktop" target="_blank" rel="noopener noreferrer" title="灵魂ai。">
                         vsoul灵魂ai
                     </a></li>
-                    <li><a href="https://space.coze.cn/" target="_blank" title="ai平台。">
+                    <li><a href="https://space.coze.cn/" target="_blank" rel="noopener noreferrer" title="ai平台。">
                         扣子空间
                     </a></li>
-                    <li><a href="https://www.doubao.com/chat/" target="_blank" title="豆包ai平台。">
+                    <li><a href="https://www.doubao.com/chat/" target="_blank" rel="noopener noreferrer" title="豆包ai平台。">
                         豆包
                     </a></li>
-                    <li><a href="https://chat.deepseek.com/" target="_blank" title="deepseek平台。">
+                    <li><a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer" title="deepseek平台。">
                         deepseek
                     </a></li>
-                    <li><a href="https://yuanbao.tencent.com/chat/naQivTmsDa/" target="_blank" title="元宝平台。">
+                    <li><a href="https://yuanbao.tencent.com/chat/naQivTmsDa/" target="_blank" rel="noopener noreferrer" title="元宝平台。">
                         腾讯元宝
                     </a></li>
                 </ul>
@@ -458,53 +459,54 @@
             <section class="category" id="工具">
                 <h2>工具</h2>
                 <ul>
-                    <li><a href="https://snapany.com/zh" target="_blank" title="万能视频下载。">
+                    <li><a href="https://snapany.com/zh" target="_blank" rel="noopener noreferrer" title="万能视频下载。">
                         万能视频下载
                     </a></li>
-                    <li><a href="https://newsnow.busiyi.world/c/focus" target="_blank" title="新闻大全。">
+                    <li><a href="https://newsnow.busiyi.world/c/focus" target="_blank" rel="noopener noreferrer" title="新闻大全。">
                         新闻大全
                     </a></li>
-                    <li><a href="https://v2ex.com/" target="_blank" title="V2EX程序员社区。">
+                    <li><a href="https://v2ex.com/" target="_blank" rel="noopener noreferrer" title="V2EX程序员社区。">
                         V2EX程序员社区
                     </a></li>
-                    <li><a href="https://www.yuque.com/u39594597/ffp1h4" target="_blank" title="语雀。">
+                    <li><a href="https://www.yuque.com/u39594597/ffp1h4" target="_blank" rel="noopener noreferrer" title="语雀。">
                         语雀撸毛合集
                     </a></li>
-                    <li><a href="https://accounts.binance.com/zh-TW/register?ref=10022763" target="_blank" title="币安全球第一交易所。">
+                    <li><a href="https://accounts.binance.com/zh-TW/register?ref=10022763" target="_blank" rel="noopener noreferrer" title="币安全球第一交易所。">
                         币安交易所
                     </a></li>
-                    <li><a href="https://www.okx.com/zh-hans/join/1847115" target="_blank" title="okx全球第二交易所。">
+                    <li><a href="https://www.okx.com/zh-hans/join/1847115" target="_blank" rel="noopener noreferrer" title="okx全球第二交易所。">
                         OKX交易所
                     </a></li>
-                    <li><a href="https://www.beeeye.xyz/zh-CN/referral/register?clacCode=MNZREPYS&amp;from=%2Fzh-CN%2Fevents%2Freferral-all-program&amp;source=events&amp;utmSource=PremierInviter" target="_blank" title="bitget交易所。">
+                    <li><a href="https://www.beeeye.xyz/zh-CN/referral/register?clacCode=MNZREPYS&from=%2Fzh-CN%2Fevents%2Freferral-all-program&source=events&utmSource=PremierInviter" target="_blank" rel="noopener noreferrer" title="bitget交易所。">
                         bitget交易所
                     </a></li>
-                    <li><a href="https://www.gatewebsite.com/zh/signup?ref_type=102&amp;ref=UwdFUQ" target="_blank" title="大门交易所。">
+                    <li><a href="https://www.gatewebsite.com/zh/signup?ref_type=102&ref=UwdFUQ" target="_blank" rel="noopener noreferrer" title="大门交易所。">
                         大门交易所gate
                     </a></li>
-                    <li><a href="https://github.com/coin1234567/" target="_blank" title="全球最大程序员社区。">
+                    <li><a href="https://github.com/coin1234567/" target="_blank" rel="noopener noreferrer" title="全球最大程序员社区。">
                         github
                     </a></li>
-                    <li><a href="https://dash.cloudflare.com/c21953719bb3372ad1b858b766bb0bb3/home/domains/" target="_blank" title="cloudflare。">
+                    <li><a href="https://dash.cloudflare.com/c21953719bb3372ad1b858b766bb0bb3/home/domains/" target="_blank" rel="noopener noreferrer" title="cloudflare。">
                         cloudflare
                     </a></li>
-                    <li><a href="https://gw2.wishingstarmoye.com/" target="_blank" title="激战2数据库。">
-                    激战2数据库
-                </a></li>
-                <li><a href="https://tieba.baidu.com/f?kw=%BC%A4%D5%BD2&amp;fr=ala0&amp;tpl=5&amp;dyTabStr=MCw2LDMsMiwxLDQsNSw4LDcsOQ%3D%3D" target="_blank" title="激战2贴吧。">
-                    激战2贴吧
-                </a></li>
-                <li><a href="https://www.axutongxue.com/" target="_blank" title="阿虚同学的储物间。">
-                阿虚同学的储物间
-                <li><a href="https://fanqienovel.com/main/writer/?enter_from=author_zone" target="_blank" title="番茄小说。">
-               番茄小说网作者专区
-            </a></li>
+                    <li><a href="https://gw2.wishingstarmoye.com/" target="_blank" rel="noopener noreferrer" title="激战2数据库。">
+                        激战2数据库
+                    </a></li>
+                    <li><a href="https://tieba.baidu.com/f?kw=%BC%A4%D5%BD2&fr=ala0&tpl=5&dyTabStr=MCw2LDMsMiwxLDQsNSw4LDcsOQ%3D%3D" target="_blank" rel="noopener noreferrer" title="激战2贴吧。">
+                        激战2贴吧
+                    </a></li>
+                    <li><a href="https://www.axutongxue.com/" target="_blank" rel="noopener noreferrer" title="阿虚同学的储物间。">
+                        阿虚同学的储物间
+                    </a></li>
+                    <li><a href="https://fanqienovel.com/main/writer/?enter_from=author_zone" target="_blank" rel="noopener noreferrer" title="番茄小说。">
+                        番茄小说网作者专区
+                    </a></li>
                 </ul>
             </section>
         </main>
     </div>
     <footer>
-        <p>© 2025 南宫远的导航站</p>
+        <p>© <span id="copyright-year">2024</span> 南宫远的导航站</p>
     </footer>
 
     <script>
@@ -512,6 +514,9 @@
             const searchForm = document.getElementById('searchForm');
             const searchInput = document.getElementById('searchInput');
             const searchEngineSelect = document.getElementById('searchEngine');
+
+            // 动态设置版权年份
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
             searchForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -538,14 +543,19 @@
                 }
             });
 
-            // Smooth scrolling for sidebar links
+            // 【已修复】侧边栏平滑滚动
             document.querySelectorAll('.sidebar a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const targetId = this.hash; // 使用 .hash 获取锚点 (例如 "#常用网站")
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
