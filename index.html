@@ -125,8 +125,6 @@
             flex: 1;
             max-width: 1300px;
             margin: 30px auto;
-            /* 移除 background 属性，让其透明，显示 body 的背景 */
-            /* background: var(--card-bg); */ 
             border-radius: var(--border-radius-md);
             box-shadow: 0 0 20px var(--shadow-light);
             overflow: hidden;
@@ -206,12 +204,12 @@
             list-style: none;
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 核心：强制一行4列 */
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
         }
 
         .category ul li {
-            background: var(--card-bg); /* 卡片背景现在与主背景色相同 */
+            background: var(--card-bg);
             padding: 1rem;
             border-radius: var(--border-radius-md);
             transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -221,12 +219,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 8px var(--shadow-light); /* 增加默认阴影，让卡片有浮动感 */
+            box-shadow: 0 2px 8px var(--shadow-light);
             word-break: break-all;
         }
 
         .category ul li:hover {
-            background: var(--background-medium); /* 悬停时背景变稍深的绿豆沙色 */
+            background: var(--background-medium);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px var(--shadow-medium);
         }
@@ -543,13 +541,14 @@
                 }
             });
 
-            // 【已修复】侧边栏平滑滚动
+            // 【最终修复】侧边栏平滑滚动
             document.querySelectorAll('.sidebar a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    const targetId = this.hash; // 使用 .hash 获取锚点 (例如 "#常用网站")
-                    const targetElement = document.querySelector(targetId);
+                    // 使用 getElementById 处理包含中文字符的ID，更稳定可靠
+                    const targetIdString = this.hash.substring(1); // 从 "#常用网站" 提取出 "常用网站"
+                    const targetElement = document.getElementById(targetIdString);
 
                     if (targetElement) {
                         targetElement.scrollIntoView({
