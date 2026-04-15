@@ -437,7 +437,7 @@
     <script>
     // ========== 配置区 ==========
     const CONFIG = {
-        GITHUB_TOKEN: 'ghp_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',
+        GITHUB_TOKEN: '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',
         GIST_ID: 'ecc7d09fdfc12657461a7eb1178002f8',
         ADMIN_PASSWORD: 'sz8318936'
     };
@@ -522,17 +522,11 @@
         }
 
         try {
-            const response = await fetch(`${GIST_API}/${CONFIG.GIST_ID}`, {
-                headers: { 'Accept': 'application/vnd.github.v3+json' }
-            });
+            // 使用公开的 raw URL，无需 Token
+            const rawUrl = `https://gist.githubusercontent.com/coin1234567/${CONFIG.GIST_ID}/raw/nav-data.json`;
+            const response = await fetch(rawUrl);
             if (!response.ok) throw new Error('Failed to load');
-            const gist = await response.json();
-            const content = gist.files['nav-data.json'];
-            if (content) {
-                navData = JSON.parse(content.content);
-            } else {
-                navData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-            }
+            navData = await response.json();
         } catch (error) {
             console.log('加载Gist失败，使用默认数据', error);
             navData = JSON.parse(JSON.stringify(DEFAULT_DATA));
