@@ -556,7 +556,13 @@
                     }
                 })
             });
-            if (!response.ok) throw new Error('Failed to save');
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                console.error('保存失败:', response.status, errorData);
+                alert(`保存失败 (${response.status}): ${errorData.message || response.statusText}`);
+                return false;
+            }
             return true;
         } catch (error) {
             console.error('保存失败:', error);
