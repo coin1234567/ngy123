@@ -8,9 +8,6 @@
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #7CB342 0%, #558B2F 100%);
-            --secondary-gradient: linear-gradient(135deg, #8BC34A 0%, #689F38 100%);
-            --success-gradient: linear-gradient(135deg, #9CCC65 0%, #7CB342 100%);
-            --warning-gradient: linear-gradient(135deg, #AED581 0%, #8BC34A 100%);
             --bg-primary: #E3EDCD;
             --bg-secondary: #D1E0B8;
             --bg-card: #E8F3D9;
@@ -22,7 +19,6 @@
             --shadow-sm: 0 1px 3px rgba(76, 175, 80, 0.1);
             --shadow-md: 0 4px 6px -1px rgba(76, 175, 80, 0.15), 0 2px 4px -1px rgba(76, 175, 80, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(76, 175, 80, 0.2), 0 4px 6px -2px rgba(76, 175, 80, 0.15);
-            --shadow-xl: 0 20px 25px -5px rgba(76, 175, 80, 0.25), 0 10px 10px -5px rgba(76, 175, 80, 0.2);
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
@@ -42,7 +38,6 @@
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,7 +63,6 @@
         }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* Header */
         header {
             background: var(--bg-sidebar);
             backdrop-filter: blur(20px);
@@ -87,17 +81,12 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
         }
-        .logo:hover { text-decoration: none; }
         
-        /* Search */
-        .search-container {
-            flex: 1; max-width: 600px; display: flex; gap: 0.5rem;
-        }
+        .search-container { flex: 1; max-width: 600px; display: flex; gap: 0.5rem; }
         .search-form {
             flex: 1; display: flex; background: var(--bg-card);
             border-radius: var(--radius-xl); padding: 0.25rem;
-            border: 2px solid var(--border-color);
-            transition: var(--transition);
+            border: 2px solid var(--border-color); transition: var(--transition);
         }
         .search-form:focus-within { border-color: var(--text-muted); box-shadow: var(--shadow-md); }
         .search-input {
@@ -116,7 +105,6 @@
         }
         .search-btn:hover { transform: scale(1.05); box-shadow: var(--shadow-md); }
         
-        /* Theme toggle */
         .theme-toggle {
             width: 44px; height: 44px; border: 2px solid var(--border-color);
             background: var(--bg-card); border-radius: var(--radius-md);
@@ -124,13 +112,11 @@
         }
         .theme-toggle:hover { border-color: var(--text-muted); transform: scale(1.1); }
 
-        /* Main */
         .content-wrapper {
             max-width: 1400px; margin: 0 auto; padding: 2rem;
             display: grid; grid-template-columns: 240px 1fr; gap: 2rem;
         }
         
-        /* Sidebar */
         .sidebar { position: relative; }
         .sidebar-card {
             background: var(--bg-card); border-radius: var(--radius-lg);
@@ -147,7 +133,6 @@
         }
         .sidebar-card a:hover { background: var(--bg-secondary); padding-left: 1rem; }
 
-        /* Categories */
         main { display: flex; flex-direction: column; gap: 2rem; }
         .category {
             background: var(--bg-card); border-radius: var(--radius-lg);
@@ -188,13 +173,11 @@
         .site-title { font-weight: 600; color: var(--text-primary); }
         .site-desc { font-size: 0.85rem; color: var(--text-secondary); }
 
-        /* Footer */
         footer {
             background: var(--bg-sidebar); border-top: 1px solid var(--border-color);
             padding: 2rem; text-align: center; color: var(--text-secondary);
         }
 
-        /* Scroll to top */
         .scroll-top {
             position: fixed; bottom: 2rem; right: 2rem;
             width: 50px; height: 50px; border-radius: 50%;
@@ -206,136 +189,6 @@
         .scroll-top.visible { opacity: 1; visibility: visible; }
         .scroll-top:hover { transform: scale(1.1); }
 
-        /* ===== 后台管理样式 ===== */
-        .admin-panel {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 10000; display: none;
-        }
-        .admin-panel.active { display: flex; align-items: center; justify-content: center; }
-        .admin-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-        }
-        .admin-container {
-            position: relative; width: 95%; max-width: 900px; max-height: 90vh;
-            background: var(--bg-card); border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4); overflow: hidden; display: flex; flex-direction: column;
-        }
-        .admin-header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 16px 24px; background: var(--primary-gradient); color: white;
-        }
-        .admin-header h2 { font-size: 1.2rem; margin: 0; }
-        .admin-close {
-            width: 36px; height: 36px; border: none;
-            background: rgba(255,255,255,0.2); color: white;
-            font-size: 24px; border-radius: 8px; cursor: pointer;
-        }
-        .admin-content { padding: 20px; overflow-y: auto; flex: 1; }
-        
-        /* 状态栏 */
-        .admin-status {
-            padding: 12px 16px; border-radius: 8px; margin-bottom: 15px;
-            font-size: 14px; display: flex; align-items: center; gap: 10px;
-        }
-        .admin-status.success { background: #dcfce7; color: #166534; }
-        .admin-status.error { background: #fee2e2; color: #991b1b; }
-        .admin-status.warning { background: #fef3c7; color: #92400e; }
-        .admin-status.loading { background: #dbeafe; color: #1e40af; }
-        
-        /* 标签切换 */
-        .admin-tabs { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
-        .admin-tab {
-            padding: 10px 18px; border: none; background: transparent;
-            color: var(--text-secondary); cursor: pointer; border-radius: 8px; font-size: 14px;
-        }
-        .admin-tab.active { background: var(--primary-gradient); color: white; }
-        
-        /* 配置区 */
-        .config-section {
-            background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin-bottom: 20px;
-        }
-        .config-section h3 { font-size: 1rem; margin-bottom: 15px; color: var(--text-primary); }
-        .config-row { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
-        .config-row label { min-width: 80px; font-size: 14px; color: var(--text-secondary); }
-        .config-row input {
-            flex: 1; min-width: 200px; padding: 10px 14px;
-            border: 2px solid var(--border-color); border-radius: 8px;
-            font-size: 14px; background: var(--bg-card); color: var(--text-primary);
-        }
-        .btn {
-            padding: 10px 20px; border: none; border-radius: 8px;
-            cursor: pointer; font-size: 14px; transition: var(--transition);
-        }
-        .btn-primary { background: var(--primary-gradient); color: white; }
-        .btn-primary:hover { transform: translateY(-1px); }
-        .btn-danger { background: #ef4444; color: white; }
-        .btn-success { background: #22c55e; color: white; }
-        .btn-secondary { background: var(--text-muted); color: white; }
-        
-        /* 链接编辑 */
-        .links-section { background: var(--bg-secondary); padding: 20px; border-radius: 12px; }
-        .links-section h3 { font-size: 1rem; margin-bottom: 15px; }
-        .category-select {
-            padding: 10px 16px; border: 2px solid var(--border-color);
-            border-radius: 8px; font-size: 14px; background: var(--bg-card);
-            color: var(--text-primary); margin-bottom: 15px; min-width: 200px;
-        }
-        .links-list { display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto; }
-        .link-item {
-            display: flex; align-items: center; gap: 15px; padding: 14px;
-            background: var(--bg-card); border-radius: 10px;
-            cursor: pointer; transition: var(--transition);
-        }
-        .link-item:hover { background: var(--border-color); }
-        .link-item .link-info { flex: 1; min-width: 0; }
-        .link-item .link-title { font-weight: 600; color: var(--text-primary); }
-        .link-item .link-url { font-size: 12px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .link-item .link-desc { font-size: 13px; color: var(--text-secondary); }
-        .link-item .link-actions { display: flex; gap: 8px; }
-        .link-item .link-actions button {
-            padding: 6px 12px; border: none; border-radius: 6px;
-            cursor: pointer; font-size: 12px;
-        }
-        .link-item .link-actions .edit-btn { background: #3b82f6; color: white; }
-        .link-item .link-actions .delete-btn { background: #ef4444; color: white; }
-        
-        /* 编辑弹窗 */
-        .modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); z-index: 10001; display: none;
-            align-items: center; justify-content: center;
-        }
-        .modal.active { display: flex; }
-        .modal-content {
-            background: var(--bg-card); padding: 30px; border-radius: 16px;
-            width: 90%; max-width: 500px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-        }
-        .modal-content h3 { margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: var(--text-secondary); }
-        .form-group input {
-            width: 100%; padding: 12px 14px; border: 2px solid var(--border-color);
-            border-radius: 8px; font-size: 14px; background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-        .modal-buttons { display: flex; gap: 10px; margin-top: 25px; }
-        .modal-buttons button { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
-        
-        /* 设置页面 */
-        .settings-section { background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin-bottom: 15px; }
-        .settings-section h3 { font-size: 1rem; margin-bottom: 15px; }
-        .settings-section p { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
-
-        /* 加载动画 */
-        .loading-spinner {
-            display: inline-block; width: 20px; height: 20px;
-            border: 3px solid rgba(255,255,255,0.3); border-radius: 50%;
-            border-top-color: white; animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* 响应式 */
         @media (max-width: 900px) {
             .content-wrapper { grid-template-columns: 1fr; }
             .sidebar { display: none; }
@@ -382,69 +235,21 @@
             </div>
         </aside>
         
-        <main id="mainContent">
-            <!-- 内容由JS动态加载 -->
-            <div class="loading" style="text-align:center;padding:50px;">加载中...</div>
-        </main>
+        <main id="mainContent"></main>
     </div>
     
     <footer>
-        <p>© <span id="copyright-year">2024</span> 南宫远导航站 · 用心打造</p>
+        <p>© <span id="copyright-year">2026</span> 南宫远导航站 · 用心打造</p>
     </footer>
     
     <button class="scroll-top" id="scrollTop">↑</button>
 
-    <!-- 后台管理面板 -->
-    <div class="admin-panel" id="adminPanel">
-        <div class="admin-overlay" onclick="closeAdmin()"></div>
-        <div class="admin-container">
-            <div class="admin-header">
-                <h2>⚙️ 后台管理</h2>
-                <button class="admin-close" onclick="closeAdmin()">×</button>
-            </div>
-            <div class="admin-content" id="adminContent">
-                <!-- 动态内容 -->
-            </div>
-        </div>
-    </div>
-
-    <!-- 编辑弹窗 -->
-    <div class="modal" id="editModal">
-        <div class="modal-content">
-            <h3>📝 编辑链接</h3>
-            <input type="hidden" id="editCategory">
-            <input type="hidden" id="editIndex">
-            <div class="form-group">
-                <label>名称</label>
-                <input type="text" id="editTitle">
-            </div>
-            <div class="form-group">
-                <label>链接</label>
-                <input type="url" id="editUrl">
-            </div>
-            <div class="form-group">
-                <label>描述</label>
-                <input type="text" id="editDesc">
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-success" onclick="saveLink()">💾 保存</button>
-                <button class="btn-danger" onclick="deleteLink()">🗑️ 删除</button>
-                <button class="btn-secondary" onclick="closeEditModal()">取消</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-    // ========== 配置区 ==========
-    const CONFIG = {
-        GITHUB_TOKEN: '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',
-        GIST_ID: 'ecc7d09fdfc12657461a7eb1178002f8',
-        ADMIN_PASSWORD: 'sz8318936'
+    const CATEGORY_ICONS = {
+        '常用网站': '🌐', 'AI导航': '🤖', '区块链导航': '⛓️', '工具': '🛠️'
     };
-    // =========================================
 
-    // 默认数据
-    const DEFAULT_DATA = {
+    const navData = {
         '常用网站': [
             { title: '南宫远推特', url: 'https://x.com/nangongyuan/', desc: '南宫远的推特X账号' },
             { title: '南宫远微博', url: 'https://weibo.com/7594643421', desc: '南宫远的官方微博' },
@@ -453,7 +258,7 @@
             { title: '抖音', url: 'https://www.douyin.com/', desc: '抖音短视频平台' },
             { title: '哔哩哔哩', url: 'https://www.bilibili.com/', desc: '国内知名视频弹幕网站' },
             { title: '知乎', url: 'https://www.zhihu.com/', desc: '专业的问答社区' },
-            { title: '百家号', url: 'https://baijiahao.baidu.com/', desc: '百度百家号平台' },
+            { title: '什么值得买', url: 'https://www.smzdm.com/', desc: '购物推荐与优惠信息' },
             { title: 'Grok', url: 'https://grok.com/', desc: 'X平台AI助手' },
             { title: 'YouTube', url: 'https://www.youtube.com/@%E5%8D%97%E5%AE%AB%E8%BF%9C%E7%9A%84%E9%A2%91%E9%81%93', desc: '全球最大视频社区' },
             { title: '万能视频下载', url: 'https://greenvideo.cc', desc: '多平台视频下载工具' },
@@ -497,85 +302,10 @@
         ]
     };
 
-    // 图标映射
-    const CATEGORY_ICONS = {
-        '常用网站': '🌐', 'AI导航': '🤖', '区块链导航': '⛓️', '工具': '🛠️'
-    };
-
-    // 全局变量
-    let navData = null;
-    let isLoggedIn = false;
-    let currentCategory = '常用网站';
-    let adminTab = 'edit';
-    let keyPressCount = 0;
-    let keyPressTimer = null;
-
-    // ========== GitHub Gist API ==========
-    const GIST_API = 'https://api.github.com/gists';
-
-    async function loadDataFromGist() {
-        if (!CONFIG.GIST_ID) {
-            console.log('未配置Gist，使用默认数据');
-            navData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-            renderNavigation();
-            return;
-        }
-
-        try {
-            // 使用公开的 raw URL，无需 Token
-            const rawUrl = `https://gist.githubusercontent.com/coin1234567/${CONFIG.GIST_ID}/raw/nav-data.json`;
-            const response = await fetch(rawUrl);
-            if (!response.ok) throw new Error('Failed to load');
-            navData = await response.json();
-        } catch (error) {
-            console.log('加载Gist失败，使用默认数据', error);
-            navData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-        }
-        renderNavigation();
-    }
-
-    async function saveDataToGist() {
-        if (!CONFIG.GIST_ID || !CONFIG.GITHUB_TOKEN) {
-            alert('请先在代码中配置 GitHub Token 和 Gist ID！');
-            return false;
-        }
-
-        try {
-            const response = await fetch(`${GIST_API}/${CONFIG.GIST_ID}`, {
-                method: 'PATCH',
-                headers: {
-                    'Authorization': `token ${CONFIG.GITHUB_TOKEN}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    files: {
-                        'nav-data.json': {
-                            content: JSON.stringify(navData, null, 2)
-                        }
-                    }
-                })
-            });
-            
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                console.error('保存失败:', response.status, errorData);
-                alert(`保存失败 (${response.status}): ${errorData.message || response.statusText}`);
-                return false;
-            }
-            return true;
-        } catch (error) {
-            console.error('保存失败:', error);
-            alert('保存失败：' + error.message);
-            return false;
-        }
-    }
-
-    // ========== 渲染导航 ==========
-    function renderNavigation() {
+    document.addEventListener('DOMContentLoaded', () => {
+        // 渲染导航
         const main = document.getElementById('mainContent');
         let html = '';
-
         Object.keys(navData).forEach(category => {
             const links = navData[category] || [];
             html += `
@@ -595,260 +325,8 @@
                 </section>
             `;
         });
-
         main.innerHTML = html;
-    }
 
-    // ========== 后台管理 ==========
-    function openAdmin() {
-        document.getElementById('adminPanel').classList.add('active');
-        if (isLoggedIn) {
-            showAdminPanel();
-        } else {
-            showLoginForm();
-        }
-    }
-
-    function closeAdmin() {
-        document.getElementById('adminPanel').classList.remove('active');
-    }
-
-    function showLoginForm() {
-        document.getElementById('adminContent').innerHTML = `
-            <div style="max-width:400px;margin:50px auto;text-align:center;">
-                <h3 style="margin-bottom:20px;">🔐 请输入管理密码</h3>
-                <input type="password" id="loginPassword" placeholder="输入密码" 
-                    style="width:100%;padding:15px;border:2px solid var(--border-color);border-radius:10px;font-size:16px;margin-bottom:15px;background:var(--bg-secondary);color:var(--text-primary);"
-                    onkeypress="if(event.key==='Enter')checkPassword()">
-                <button class="btn btn-primary" onclick="checkPassword()" style="width:100%;padding:15px;font-size:16px;">登录</button>
-                <p id="loginError" style="color:#ef4444;margin-top:10px;display:none;">密码错误</p>
-            </div>
-        `;
-    }
-
-    function checkPassword() {
-        const pass = document.getElementById('loginPassword').value;
-        if (pass === CONFIG.ADMIN_PASSWORD) {
-            isLoggedIn = true;
-            showAdminPanel();
-        } else {
-            document.getElementById('loginError').style.display = 'block';
-        }
-    }
-
-    function showAdminPanel() {
-        adminTab = 'edit';
-        renderAdminContent();
-    }
-
-    function renderAdminContent() {
-        const content = document.getElementById('adminContent');
-
-        if (adminTab === 'edit') {
-            content.innerHTML = `
-                <div class="admin-status ${CONFIG.GIST_ID ? 'success' : 'warning'}">
-                    ${CONFIG.GIST_ID ? '✅ 已连接云端存储，修改后所有人可见' : '⚠️ 未配置Gist，修改只保存在本地'}
-                </div>
-                
-                <div class="admin-tabs">
-                    <button class="admin-tab active" onclick="switchTab('edit')">📝 编辑链接</button>
-                    <button class="admin-tab" onclick="switchTab('settings')">⚙️ 设置</button>
-                </div>
-                
-                <div class="links-section">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;">
-                        <select class="category-select" id="categorySelect" onchange="changeCategory()">
-                            ${Object.keys(navData).map(cat => `<option value="${cat}">${cat}</option>`).join('')}
-                        </select>
-                        <div style="display:flex;gap:10px;">
-                            <button class="btn btn-primary" onclick="addLink()">➕ 添加链接</button>
-                            <button class="btn btn-success" onclick="saveChanges()">💾 保存全部</button>
-                        </div>
-                    </div>
-                    <div class="links-list" id="linksList"></div>
-                </div>
-            `;
-            document.getElementById('categorySelect').value = currentCategory;
-            renderLinksList();
-        } else {
-            content.innerHTML = `
-                <div class="admin-tabs">
-                    <button class="admin-tab" onclick="switchTab('edit')">📝 编辑链接</button>
-                    <button class="admin-tab active" onclick="switchTab('settings')">⚙️ 设置</button>
-                </div>
-                
-                <div class="settings-section">
-                    <h3>📋 配置说明</h3>
-                    <p>要实现云端同步（修改后所有人可见），需要：</p>
-                    <ol style="margin:10px 0 15px 20px;font-size:13px;line-height:1.8;">
-                        <li>登录 GitHub → Settings → Developer settings → Personal access tokens → Generate new token</li>
-                        <li>勾选 <strong>gist</strong> 权限</li>
-                        <li>创建 Gist: <a href="https://gist.github.com/" target="_blank" style="color:var(--primary);">https://gist.github.com/</a></li>
-                        <li>创建名为 <code>nav-data.json</code> 的文件，内容为 <code>{}</code></li>
-                        <li>把 Token 和 Gist ID 填到代码顶部的 CONFIG 配置区</li>
-                    </ol>
-                </div>
-                
-                <div class="settings-section">
-                    <h3>🔑 修改密码</h3>
-                    <div class="config-row">
-                        <label>新密码:</label>
-                        <input type="password" id="newPassword" placeholder="输入新密码">
-                        <button class="btn btn-primary" onclick="changePassword()">确认修改</button>
-                    </div>
-                </div>
-                
-                <div class="settings-section">
-                    <h3>💾 数据管理</h3>
-                    <button class="btn btn-secondary" onclick="resetToDefault()">🔄 重置为默认数据</button>
-                    <p>⚠️ 重置后需要重新保存才会同步到云端</p>
-                </div>
-            `;
-        }
-    }
-
-    function switchTab(tab) {
-        adminTab = tab;
-        renderAdminContent();
-    }
-
-    function changeCategory() {
-        currentCategory = document.getElementById('categorySelect').value;
-        renderLinksList();
-    }
-
-    function renderLinksList() {
-        const list = document.getElementById('linksList');
-        if (!list) return;
-        const links = navData[currentCategory] || [];
-        list.innerHTML = links.map((link, index) => `
-            <div class="link-item">
-                <div class="link-info">
-                    <div class="link-title">${link.title}</div>
-                    <div class="link-url">${link.url}</div>
-                    <div class="link-desc">${link.desc}</div>
-                </div>
-                <div class="link-actions">
-                    <button class="edit-btn" onclick="openEditModal('${currentCategory}', ${index})">编辑</button>
-                    <button class="delete-btn" onclick="confirmDelete('${currentCategory}', ${index})">删除</button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function addLink() {
-        navData[currentCategory].push({ title: '新链接', url: 'https://', desc: '描述' });
-        renderLinksList();
-        const idx = navData[currentCategory].length - 1;
-        openEditModal(currentCategory, idx);
-    }
-
-    function openEditModal(category, index) {
-        const link = navData[category][index];
-        document.getElementById('editCategory').value = category;
-        document.getElementById('editIndex').value = index;
-        document.getElementById('editTitle').value = link.title;
-        document.getElementById('editUrl').value = link.url;
-        document.getElementById('editDesc').value = link.desc;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function closeEditModal() {
-        document.getElementById('editModal').classList.remove('active');
-    }
-
-    function saveLink() {
-        const category = document.getElementById('editCategory').value;
-        const index = parseInt(document.getElementById('editIndex').value);
-        navData[category][index] = {
-            title: document.getElementById('editTitle').value,
-            url: document.getElementById('editUrl').value,
-            desc: document.getElementById('editDesc').value
-        };
-        closeEditModal();
-        renderLinksList();
-        renderNavigation();
-        showToast('已修改，请点击"保存全部"同步到云端');
-    }
-
-    function confirmDelete(category, index) {
-        if (confirm('确定删除这个链接吗？')) {
-            navData[category].splice(index, 1);
-            renderLinksList();
-            renderNavigation();
-            showToast('已删除，请点击"保存全部"同步到云端');
-        }
-    }
-
-    function deleteLink() {
-        const category = document.getElementById('editCategory').value;
-        const index = parseInt(document.getElementById('editIndex').value);
-        navData[category].splice(index, 1);
-        closeEditModal();
-        renderLinksList();
-        renderNavigation();
-        showToast('已删除，请点击"保存全部"同步到云端');
-    }
-
-    async function saveChanges() {
-        const statusEl = document.querySelector('.admin-status');
-        statusEl.className = 'admin-status loading';
-        statusEl.innerHTML = '<span class="loading-spinner"></span> 保存中...';
-
-        const success = await saveDataToGist();
-        
-        if (success) {
-            statusEl.className = 'admin-status success';
-            statusEl.innerHTML = '✅ 保存成功！所有人刷新页面即可看到更新';
-            renderNavigation();
-        } else if (!CONFIG.GIST_ID) {
-            statusEl.className = 'admin-status warning';
-            statusEl.innerHTML = '⚠️ 未配置云端存储，数据仅保存在本地';
-        } else {
-            statusEl.className = 'admin-status error';
-            statusEl.innerHTML = '❌ 保存失败，请检查Token和Gist配置';
-        }
-    }
-
-    function changePassword() {
-        const newPass = document.getElementById('newPassword').value.trim();
-        if (!newPass) {
-            alert('请输入新密码');
-            return;
-        }
-        if (confirm('修改密码后需要同步到云端才能生效。是否继续？')) {
-            CONFIG.ADMIN_PASSWORD = newPass;
-            alert('密码已修改为: ' + newPass + '\n请复制新代码部署，密码硬编码在HTML中');
-        }
-    }
-
-    function resetToDefault() {
-        if (confirm('确定重置为默认数据吗？')) {
-            navData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-            renderNavigation();
-            renderLinksList();
-            showToast('已重置，请点击"保存全部"同步到云端');
-        }
-    }
-
-    function showToast(message) {
-        const toast = document.createElement('div');
-        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#333;color:white;padding:12px 24px;border-radius:8px;z-index:10002;animation:fadeInUp 0.3s ease';
-        toast.textContent = message;
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-    }
-
-    // ========== 初始化 ==========
-    document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('copyright-year').textContent = new Date().getFullYear();
-        
-        // 加载数据
-        loadDataFromGist();
-        
         // 搜索功能
         document.getElementById('searchForm').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -892,20 +370,6 @@
         });
         document.getElementById('scrollTop').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // 快捷键打开后台 (按3次A)
-        document.addEventListener('keydown', (e) => {
-            if (e.target.tagName === 'INPUT') return;
-            if (e.key.toLowerCase() === 'a') {
-                keyPressCount++;
-                clearTimeout(keyPressTimer);
-                keyPressTimer = setTimeout(() => keyPressCount = 0, 1000);
-                if (keyPressCount >= 3) {
-                    openAdmin();
-                    keyPressCount = 0;
-                }
-            }
         });
     });
     </script>
