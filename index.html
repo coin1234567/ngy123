@@ -112,6 +112,20 @@
         }
         .theme-toggle:hover { border-color: var(--text-muted); transform: scale(1.1); }
 
+        /* 价格显示 */
+        .price-bar {
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+        }
+        .price-item {
+            display: flex; align-items: center; gap: 0.3rem;
+            font-size: 0.85rem; padding: 0.4rem 0.75rem;
+            background: var(--bg-card); border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+        .price-icon { font-size: 0.9rem; }
+        .price-symbol { font-weight: 600; color: var(--text-secondary); }
+        .price-value { font-weight: 500; color: var(--text-primary); }
+
         .content-wrapper {
             max-width: 1400px; margin: 0 auto; padding: 2rem;
             display: grid; grid-template-columns: 240px 1fr; gap: 2rem;
@@ -206,7 +220,19 @@
     
     <header>
         <div class="header-content">
-            <a href="#" class="logo">🧭 南宫远导航站</a>
+            <a href="#" class="logo">🧭 南宫远区块链导航</a>
+            <div class="price-bar" id="priceBar">
+                <div class="price-item">
+                    <span class="price-icon">₿</span>
+                    <span class="price-symbol">BTC</span>
+                    <span class="price-value" id="btcPrice">-</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-icon">Ξ</span>
+                    <span class="price-symbol">ETH</span>
+                    <span class="price-value" id="ethPrice">-</span>
+                </div>
+            </div>
             <div class="search-container">
                 <form class="search-form" id="searchForm">
                     <input type="text" class="search-input" id="searchInput" placeholder="搜索..." autocomplete="off">
@@ -277,13 +303,13 @@
         '区块链导航': [
             { title: '币安', url: 'https://accounts.binance.com/zh-TW/register?ref=10022763', desc: '全球最大的加密货币交易所' },
             { title: 'OKX', url: 'https://www.okx.com/zh-hans/join/1847115', desc: '全球领先的加密货币交易平台' },
-            { title: 'Etherscan', url: 'https://etherscan.io/', desc: '以太坊区块链浏览器' },
+            { title: 'Bitcoin.org', url: 'https://bitcoin.org/', desc: '比特币官方中文网站' },
             { title: 'OKLink', url: 'https://www.oklink.com/zh-hans', desc: '区块链数据浏览器' },
             { title: 'Coinglass', url: 'https://www.coinglass.com/zh', desc: '加密货币行情与数据' },
             { title: 'CoinMarketCap', url: 'https://coinmarketcap.com/', desc: '加密货币市值排名' },
             { title: 'DeFi Llama', url: 'https://defillama.com/', desc: 'DeFi数据分析平台' },
             { title: 'PANews', url: 'https://www.panewslab.com/zh', desc: '专业的区块链新闻平台' },
-            { title: 'CoinDesk', url: 'https://www.coindesk.com/', desc: '全球区块链新闻资讯' },
+            { title: 'BIP-0039', url: 'https://github.com/bitcoin/bips/tree/master/bip-0039', desc: '比特币助记词规范' },
             { title: 'Gate.io', url: 'https://www.gatewebsite.com/zh/signup?ref_type=102&ref=UwdFUQ', desc: '知名加密货币交易所' },
             { title: 'Bitget', url: 'https://www.beeeye.xyz/zh-CN/referral/register?clacCode=MNZREPYS', desc: '知名加密货币交易所' }
         ],
@@ -301,6 +327,31 @@
             { title: '星际2贴吧', url: 'https://tieba.baidu.com/f?ie=utf-8&kw=%E6%98%9F%E9%99%852', desc: 'StarCraft 2玩家社区' }
         ]
     };
+
+    // 获取OKX价格
+    async function getPrice() {
+        try {
+            const [btcRes, ethRes] = await Promise.all([
+                fetch('https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT'),
+                fetch('https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT')
+            ]);
+            const btcData = await btcRes.json();
+            const ethData = await ethRes.json();
+            
+            if (btcData.data && btcData.data[0]) {
+                const btcPrice = parseFloat(btcData.data[0].last);
+                document.getElementById('btcPrice').innerText = '$' + btcPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            }
+            if (ethData.data && ethData.data[0]) {
+                const ethPrice = parseFloat(ethData.data[0].last);
+                document.getElementById('ethPrice').innerText = '$' + ethPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            }
+        } catch (error) {
+            console.log('价格获取失败');
+        }
+    }
+    getPrice();
+    setInterval(getPrice, 30000);
 
     document.addEventListener('DOMContentLoaded', () => {
         // 渲染导航
