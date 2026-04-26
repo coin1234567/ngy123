@@ -232,6 +232,11 @@
                     <span class="price-symbol">ETH</span>
                     <span class="price-value" id="ethPrice">-</span>
                 </div>
+                <div class="price-item">
+                    <span class="price-icon">⟠</span>
+                    <span class="price-symbol">ETH/BTC</span>
+                    <span class="price-value" id="ethBtcPrice">-</span>
+                </div>
             </div>
             <div class="search-container">
                 <form class="search-form" id="searchForm">
@@ -328,24 +333,19 @@
         ]
     };
 
-    // 获取OKX价格
+    // 获取加密货币价格（CoinGecko API）
     async function getPrice() {
         try {
-            const [btcRes, ethRes] = await Promise.all([
-                fetch('https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT'),
-                fetch('https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT')
-            ]);
-            const btcData = await btcRes.json();
-            const ethData = await ethRes.json();
+            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd,btc');
+            const data = await response.json();
             
-            if (btcData.data && btcData.data[0]) {
-                const btcPrice = parseFloat(btcData.data[0].last);
-                document.getElementById('btcPrice').innerText = '$' + btcPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            }
-            if (ethData.data && ethData.data[0]) {
-                const ethPrice = parseFloat(ethData.data[0].last);
-                document.getElementById('ethPrice').innerText = '$' + ethPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            }
+            const btcPrice = data.bitcoin.usd;
+            const ethPrice = data.ethereum.usd;
+            const ethBtcPrice = data.ethereum.btc;
+            
+            document.getElementById('btcPrice').innerText = '$' + btcPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('ethPrice').innerText = '$' + ethPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('ethBtcPrice').innerText = ethBtcPrice.toFixed(6) + ' BTC';
         } catch (error) {
             console.log('价格获取失败');
         }
