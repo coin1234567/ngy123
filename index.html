@@ -262,6 +262,7 @@
                     <li><a href="#AI导航">🤖 AI导航</a></li>
                     <li><a href="#区块链导航">⛓️ 区块链导航</a></li>
                     <li><a href="#工具">🛠️ 工具</a></li>
+                    <li><a href="#交易所导航">💰 交易所导航</a></li>
                 </ul>
             </div>
         </aside>
@@ -277,21 +278,18 @@
 
     <script>
     const CATEGORY_ICONS = {
-        '常用网站': '🌐', 'AI导航': '🤖', '区块链导航': '⛓️', '工具': '🛠️'
+        '常用网站': '🌐', 'AI导航': '🤖', '区块链导航': '⛓️', '工具': '🛠️', '交易所导航': '💰'
     };
 
     const navData = {
         '常用网站': [
             { title: '南宫远推特', url: 'https://x.com/nangongyuan/', desc: '南宫远的推特X账号' },
             { title: '南宫远微博', url: 'https://weibo.com/7594643421', desc: '南宫远的官方微博' },
-            { title: '豆包', url: 'https://www.doubao.com/chat/', desc: '字节跳动AI助手' },
             { title: '微信公众号', url: 'https://mp.weixin.qq.com/', desc: '微信公众平台官网' },
             { title: '抖音', url: 'https://www.douyin.com/', desc: '抖音短视频平台' },
             { title: '哔哩哔哩', url: 'https://www.bilibili.com/', desc: '国内知名视频弹幕网站' },
             { title: '知乎', url: 'https://www.zhihu.com/', desc: '专业的问答社区' },
             { title: '什么值得买', url: 'https://www.smzdm.com/', desc: '购物推荐与优惠信息' },
-            { title: 'Grok', url: 'https://grok.com/', desc: 'X平台AI助手' },
-            { title: 'YouTube', url: 'https://www.youtube.com/@%E5%8D%97%E5%AE%AB%E8%BF%9C%E7%9A%84%E9%A2%91%E9%81%93', desc: '全球最大视频社区' },
             { title: '万能视频下载', url: 'https://greenvideo.cc', desc: '多平台视频下载工具' },
             { title: '比特币实时价格', url: 'https://www.baidu.com/s?wd=%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E7%BE%8E%E5%85%83%E4%BB%B7%E6%A0%BC', desc: '百度比特币实时行情' }
         ],
@@ -303,11 +301,10 @@
             { title: 'Grok', url: 'https://grok.com/', desc: 'X平台AI助手' },
             { title: 'Microsoft Copilot', url: 'https://copilot.microsoft.com/', desc: '微软AI助手' },
             { title: '百度AI', url: 'https://chat.baidu.com/', desc: '百度文心一言' },
-            { title: '豆包', url: 'https://www.doubao.com/chat/', desc: '字节跳动AI助手' }
+            { title: '豆包', url: 'https://www.doubao.com/chat/', desc: '字节跳动AI助手' },
+            { title: 'Duck.ai', url: 'https://duckduckgo.com/?ia=chat', desc: 'DuckDuckGo AI搜索助手' }
         ],
         '区块链导航': [
-            { title: '币安', url: 'https://accounts.binance.com/zh-TW/register?ref=10022763', desc: '全球最大的加密货币交易所' },
-            { title: 'OKX', url: 'https://www.okx.com/zh-hans/join/1847115', desc: '全球领先的加密货币交易平台' },
             { title: 'Bitcoin.org', url: 'https://bitcoin.org/', desc: '比特币官方中文网站' },
             { title: 'OKLink', url: 'https://www.oklink.com/zh-hans', desc: '区块链数据浏览器' },
             { title: 'Coinglass', url: 'https://www.coinglass.com/zh', desc: '加密货币行情与数据' },
@@ -315,8 +312,8 @@
             { title: 'DeFi Llama', url: 'https://defillama.com/', desc: 'DeFi数据分析平台' },
             { title: 'PANews', url: 'https://www.panewslab.com/zh', desc: '专业的区块链新闻平台' },
             { title: 'BIP-0039', url: 'https://github.com/bitcoin/bips/tree/master/bip-0039', desc: '比特币助记词规范' },
-            { title: 'Gate.io', url: 'https://www.gatewebsite.com/zh/signup?ref_type=102&ref=UwdFUQ', desc: '知名加密货币交易所' },
-            { title: 'Bitget', url: 'https://www.beeeye.xyz/zh-CN/referral/register?clacCode=MNZREPYS', desc: '知名加密货币交易所' }
+            { title: 'FuckBTC', url: 'https://fuckbtc.com/', desc: '加密货币资讯网站' },
+            { title: '比特币富豪榜', url: 'https://bitinfocharts.com/zh/top-100-richest-bitcoin-addresses.html', desc: '比特币地址余额排行榜' }
         ],
         '工具': [
             { title: '万能视频下载', url: 'https://snapany.com/zh', desc: '多平台视频下载工具' },
@@ -329,7 +326,14 @@
             { title: '激战2数据库', url: 'https://gw2.wishingstarmoye.com/', desc: 'Guild Wars 2数据查询' },
             { title: '激战2贴吧', url: 'https://tieba.baidu.com/f?kw=%BC%A4%D5%BD2', desc: '激战2玩家社区' },
             { title: '阿虚同学的储物间', url: 'https://www.axutongxue.com/', desc: '资源分享网站' },
-            { title: '星际2贴吧', url: 'https://tieba.baidu.com/f?ie=utf-8&kw=%E6%98%9F%E9%99%852', desc: 'StarCraft 2玩家社区' }
+            { title: '星际2贴吧', url: 'https://tieba.baidu.com/f?ie=utf-8&kw=%E6%98%9F%E9%99%852', desc: 'StarCraft 2玩家社区' },
+            { title: '免费教育邮箱', url: 'https://edumail.su/', desc: '免费教育邮箱申请' }
+        ],
+        '交易所导航': [
+            { title: '币安', url: 'https://accounts.binance.com/zh-TW/register?ref=10022763', desc: '全球最大的加密货币交易所' },
+            { title: 'OKX', url: 'https://www.okx.com/zh-hans/join/1847115', desc: '全球领先的加密货币交易平台' },
+            { title: 'Gate.io', url: 'https://www.gatewebsite.com/zh/signup?ref_type=102&ref=UwdFUQ', desc: '知名加密货币交易所' },
+            { title: 'Bitget', url: 'https://www.beeeye.xyz/zh-CN/referral/register?clacCode=MNZREPYS', desc: '知名加密货币交易所' }
         ]
     };
 
